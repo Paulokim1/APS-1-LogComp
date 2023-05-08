@@ -3,9 +3,9 @@
 ```python
 <program> ::= {player}, {stats}, <battle>, <outcome>
 
-<player> ::= <name> "chose" <pokemon> 
+<player> ::= <trainer> "chose" <pokemon> 
 
-<name> ::= "Red" | "Blue" | "Green"
+<trainer> ::= "Red" | "Blue" | "Green"
 
 <pokemon> ::= "Charmander" | "Squirtle" | "Bulbasaur"
 
@@ -19,27 +19,20 @@
 
 <battle> ::= "while" "(" <condition> ")" ":" {action}
 
-<action> ::= <attack> | <debuf> | <damage> 
+<action> ::= <attack>
 
-<condition> ::= <pokemon1>.alive "or" <pokemon2>.alive
+<condition> ::= <pokemon>.<attribute> "or" <pokemon>.<attribute>
 
-<attack> ::= <pokemon>  "uses" <move>
-
-<damage> ::= <pokemon> "lost" <value> "HP" 
-
-<debuf> ::= <pokemon> <attribute> "fell"
-
-<outcome> ::= <pokemon> "The winner is" <pokemon>
+<attack> ::= <pokemon>  "use" <move>
 ```
 
 ## Exemplo
 
 ```python
-Red chose Charmander as pokemon1
+Red chose Charmander 
+Blue chose Squirtle 
 
-Blue chose Squirtle as pokemon2
-
-Charmander's stats : 
+Charmander stats:
 
     Level = 1
 
@@ -49,7 +42,7 @@ Charmander's stats :
 
     DS = 7
 
-Squirtle's stats : 
+Squirtle stats:
 
     Level = 1
 
@@ -59,25 +52,13 @@ Squirtle's stats :
 
     DS = 11
 
-while (pokemon1.alive or pokemon2.alive): 
+while (Charmander.HP > 0 or Squirtle.HP > 0):
 
-    Charmander uses Scratch
+    Charmander use Scratch!
 
-    Squirtle lost 7 HP
+    Squirtle use Tail Whip!
 
-    Squirtle uses Tail Whip
+    Charmander use Scratch!
 
-    Charmander DS fell
-
-    Charmander uses Scratch
-
-    Squirtle lost 7 HP
-
-    Squirtle uses Water Gun
-
-    Charmander lost 24 HP
-
-    Charmander fainted
-
-The winner is Squirtle.
+    Squirtle use Water Gun!
 ```
