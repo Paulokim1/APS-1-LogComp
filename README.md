@@ -29,36 +29,28 @@
 ## Exemplo
 
 ```python
+The Battle of Pallet Town
+
 Red chose Charmander 
 Blue chose Squirtle 
 
-Charmander stats:
-
+Charmander stats
     Level = 1
-
     HP = 22
-
     AS = 10
-
     DS = 7
 
-Squirtle stats:
-
+Squirtle stats
     Level = 1
-
     HP = 28
-
     AS = 8
-
     DS = 11
 
-while (Charmander.HP > 0 or Squirtle.HP > 0):
+while (Charmander.HP > 0 or Squirtle.HP > 0)
+    Charmander use Scratch
+    Squirtle use Tail Whip
+    Charmander use Scratch
+    Squirtle use Water Gun
 
-    Charmander use Scratch!
-
-    Squirtle use Tail Whip!
-
-    Charmander use Scratch!
-
-    Squirtle use Water Gun!
+Gotta catch 'em all
 ```
