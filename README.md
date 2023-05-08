@@ -3,13 +3,11 @@
 ```python
 <program> ::= {player}, {stats}, <battle>, <outcome>
 
-<player> ::= <name> "chose" <pokemon> "as" <variable>
+<player> ::= <name> "chose" <pokemon> 
 
 <name> ::= "Red" | "Blue" | "Green"
 
 <pokemon> ::= "Charmander" | "Squirtle" | "Bulbasaur"
-
-<variable> ::= "pokemon1" | "pokemon2"
 
 <stats> ::= <pokemon> "'s stats :" <attribute> "=" <value>, <attribute> "=" <value>, <attribute> "=" <value>
 
@@ -25,11 +23,11 @@
 
 <condition> ::= <pokemon1>.alive "or" <pokemon2>.alive
 
-<attack> ::= <pokemon1> | <pokemon2> "uses" <move>
+<attack> ::= <pokemon>  "uses" <move>
 
-<damage> ::= <pokemon2> "lost" <value> "HP" 
+<damage> ::= <pokemon> "lost" <value> "HP" 
 
-<debuf> ::= <pokemon1> <attribute> "fell"
+<debuf> ::= <pokemon> <attribute> "fell"
 
 <outcome> ::= <pokemon> "The winner is" <pokemon>
 ```
