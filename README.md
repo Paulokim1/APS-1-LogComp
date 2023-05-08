@@ -11,7 +11,7 @@
 
 <stats> ::= <pokemon> "'s stats :" <attribute> "=" <value>, <attribute> "=" <value>, <attribute> "=" <value>
 
-<attribute> ::= "Level" | "HP" | "attack_stat" | "defense_stat"
+<attribute> ::= "Level" | "HP" | "AS" | "DS"
 
 <value> ::= [0-9]+
 
@@ -45,7 +45,9 @@ Charmander.stats:
 
     HP = 22
 
-    Moves = [Scratch, Ember, Leer]
+    AS = 10
+
+    DS = 7
 
 Squirtle.stats: 
 
@@ -53,7 +55,9 @@ Squirtle.stats:
 
     HP = 28
 
-    Moves = [Tackle, Water Gun, Tail Whip]
+    AS = 8
+
+    DS = 11
 
 while (pokemon1.alive or pokemon2.alive): 
 
@@ -63,7 +67,7 @@ while (pokemon1.alive or pokemon2.alive):
 
     Squirtle uses Tail Whip
 
-    Charmander defense fell
+    Charmander DS fell
 
     Charmander uses Scratch
 
