@@ -1,7 +1,9 @@
 # APS-1-LogComp
 
 ```python
-<program> ::= {player}, {stats}, <battle>, <outcome>
+<program> ::= <start> {player} {stats} <battle> <last>
+
+<start> ::= "The Battle of Pallet Town"
 
 <player> ::= <trainer> "chose" <pokemon> 
 
@@ -9,7 +11,7 @@
 
 <pokemon> ::= "Charmander" | "Squirtle" | "Bulbasaur"
 
-<stats> ::= <pokemon> "'s stats :" <attribute> "=" <value>, <attribute> "=" <value>, <attribute> "=" <value>
+<stats> ::= <pokemon> "stats" <attribute> "=" <value> <attribute> "=" <value> <attribute> "=" <value>
 
 <attribute> ::= "Level" | "HP" | "AS" | "DS"
 
@@ -17,13 +19,15 @@
 
 <move> ::= "Tackle" | "Scratch" | "Ember" | "Water Gun" | "Razor Leaf" | "Leer" | "Tail Whip"
 
-<battle> ::= "while" "(" <condition> ")" ":" {action}
+<battle> ::= "while" "(" <condition> ")" {action}
 
 <action> ::= <attack>
 
 <condition> ::= <pokemon>.<attribute> "or" <pokemon>.<attribute>
 
 <attack> ::= <pokemon>  "use" <move>
+
+<last> ::= "Gotta catch 'em all"
 ```
 
 ## Exemplo
