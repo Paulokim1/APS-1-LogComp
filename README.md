@@ -39,7 +39,7 @@ Red chose Charmander as pokemon1
 
 Blue chose Squirtle as pokemon2
 
-Charmander.stats: 
+Charmander's stats : 
 
     Level = 1
 
@@ -49,7 +49,7 @@ Charmander.stats:
 
     DS = 7
 
-Squirtle.stats: 
+Squirtle's stats : 
 
     Level = 1
 
