@@ -11,9 +11,11 @@
 
 <variable> ::= "pokemon1" | "pokemon2"
 
-<attribute> ::= "Level" | "HP" | "Moves"
+<stats> ::= <pokemon> "'s stats :" <attribute> "=" <value>, <attribute> "=" <value>, <attribute> "=" <value>
 
-<value> ::= [0-9]+ | <move_list>
+<attribute> ::= "Level" | "HP" | "attack_stat" | "defense_stat"
+
+<value> ::= [0-9]+
 
 <move> ::= "Tackle" | "Scratch" | "Ember" | "Water Gun" | "Razor Leaf" | "Leer" | "Tail Whip"
 
@@ -27,9 +29,7 @@
 
 <damage> ::= <pokemon2> "lost" <value> "HP" 
 
-<debuf> ::= <pokemon1> <atk_def_stat> "fell"
-
-<atk_def_stats> ::= "attack" | "defense"
+<debuf> ::= <pokemon1> <attribute> "fell"
 
 <outcome> ::= <pokemon> "The winner is" <pokemon>
 ```
