@@ -1,5 +1,6 @@
 # APS-1-LogComp
 
+## EBNF
 ```python
 BLOCK = { STATEMENT };
 STATEMENT = ( λ | ASSIGNMENT | PRINT | VARDEC | FUNCCALL | RETURN | IF | WHILE | FUNCDEC ), "\n" ;
