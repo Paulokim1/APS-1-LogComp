@@ -25,7 +25,7 @@ DIGIT = ( 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0 ) ;
 ```
 
 ## Exemplo
-`teste.txt`
+`test.txt`
 ```python
 FUNCAO soma{x COMO INTEIRO, y COMO INTEIRO} COMO INTEIRO
   RETORNE x MAIS y
