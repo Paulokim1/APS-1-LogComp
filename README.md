@@ -1,5 +1,6 @@
 # APS-1-LogComp
 
+## EBNF
 ```python
 BLOCK = { STATEMENT };
 STATEMENT = ( λ | ASSIGNMENT | PRINT | VARDEC | FUNCCALL | RETURN | IF | WHILE | FUNCDEC ), "\n" ;
@@ -24,7 +25,7 @@ DIGIT = ( 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0 ) ;
 ```
 
 ## Exemplo
-`teste.txt`
+`test.txt`
 ```python
 FUNCAO soma{x COMO INTEIRO, y COMO INTEIRO} COMO INTEIRO
   RETORNE x MAIS y
@@ -63,4 +64,8 @@ FIM
 2
 1
 0
+```
+## Como rodar o programa
+```python
+python main.py
 ```
