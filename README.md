@@ -1,60 +1,66 @@
 # APS-1-LogComp
 
 ```python
-<program> ::= <start> {player} {stats} <battle> <last>
-
-<start> ::= "The Battle of Pallet Town"
-
-<player> ::= <trainer> "chose" <pokemon> 
-
-<trainer> ::= "Red" | "Blue" | "Green"
-
-<pokemon> ::= "Charmander" | "Squirtle" | "Bulbasaur"
-
-<stats> ::= <pokemon> "stats" <attribute> "=" <value> <attribute> "=" <value> <attribute> "=" <value>
-
-<attribute> ::= "Level" | "HP" | "AS" | "DS"
-
-<value> ::= [0-9]+
-
-<move> ::= "Tackle" | "Scratch" | "Ember" | "Water Gun" | "Razor Leaf" | "Leer" | "Tail Whip"
-
-<battle> ::= "while" "(" <condition> ")" {action}
-
-<action> ::= <attack>
-
-<condition> ::= <pokemon>.<attribute> "or" <pokemon>.<attribute>
-
-<attack> ::= <pokemon>  "use" <move>
-
-<last> ::= "Gotta catch 'em all"
+BLOCK = { STATEMENT };
+STATEMENT = ( λ | ASSIGNMENT | PRINT | VARDEC | FUNCCALL | RETURN | IF | WHILE | FUNCDEC ), "\n" ;
+ASSIGNMENT = IDENTIFIER, "IGUAL", RELEXP ;
+VARDEC = IDENTIFIER, "COMO", TYPE, [ "IGUAL", RELEXP ] ;
+FUNCCALL = IDENTIFIER, "{", { RELEXP, "," }, "}" ;
+RETURN = "RETORNE", RELEXP ;
+IF = "SE", RELEXP, BLOCK, [ "SENAO", BLOCK ], "FIM" ;
+WHILE = "ENQUNTO", RELEXP, BLOCK, "FIM" ;
+FUNCDEC = "FUNCAO", IDENTIFIER, "{", { VARDEC, "," }, "}", "COMO", TYPE, BLOCK, "FIM" ;
+PRINT = "IMPRIMA", "{", RELEXP, "}" ;
+RELEXP = EXPRESSION, { ("IDENTICO" | "MAIOR" | "MENOR" ), EXPRESSION } ;
+EXPRESSION = TERM, { ("MAIS" | "MENOS" | "OU"), TERM } ;
+TERM = FACTOR, { ("MULTIPLICADO" | "DIVIDO" | "E"), FACTOR } ;
+FACTOR = (("MAIS" | "MENOS" | "CONTRARIO"), FACTOR) | NUMBER | STRING | "{", RELEXP, "}" | FUNCCALL | IDENTIFIER ;
+IDENTIFIER = LETTER, { LETTER | DIGIT | "_" } ;
+NUMBER = DIGIT, { DIGIT } ;
+STRING = """, { LETTER | DIGIT | "_" }, """ ;
+TYPE = ("INTEIRO" | "CARACTERES") ;
+LETTER = ( a | ... | z | A | ... | Z ) ;
+DIGIT = ( 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0 ) ;
 ```
 
 ## Exemplo
-
+`teste.txt`
 ```python
-The Battle of Pallet Town
+FUNCAO soma{x COMO INTEIRO, y COMO INTEIRO} COMO INTEIRO
+  RETORNE x MAIS y
+FIM
 
-Red chose Charmander 
-Blue chose Squirtle 
+x_1 COMO INTEIRO
+x_1 IGUAL 2
+x_1 IGUAL soma{1, x_1}
 
-Charmander stats
-    Level = 1
-    HP = 22
-    AS = 10
-    DS = 7
+x_1 IGUAL 3
+SE {x_1 MAIOR 1} E CONTRARIO {x_1 MENOR 1}
+  x_1 IGUAL 3
+SENAO
+  x_1 IGUAL {MENOS 20 MAIS 30} MULTIPLICADO 4 MULTIPLICADO 3 DIVIDIDO 40
+FIM
+IMPRIMA{x_1}
+x_1 IGUAL 0
 
-Squirtle stats
-    Level = 1
-    HP = 28
-    AS = 8
-    DS = 11
+SE {x_1 MAIOR 1} E CONTRARIO {x_1 MENOR 1}
+  x_1 IGUAL 3
+SENAO
+  x_1 IGUAL {MENOS 20 MAIS 30} MULTIPLICADO 12 DIVIDIDO 40
+FIM
+IMPRIMA{x_1}
 
-while (Charmander.HP > 0 or Squirtle.HP > 0)
-    Charmander use Scratch
-    Squirtle use Tail Whip
-    Charmander use Scratch
-    Squirtle use Water Gun
+ENQUANTO {{x_1 MAIOR 1} OU {x_1 IDENTICO 1}}
+  x_1 IGUAL x_1 MENOS 1
+  IMPRIMA{x_1}
+FIM
+```
 
-Gotta catch 'em all
+`output`
+```python
+3
+3
+2
+1
+0
 ```
