@@ -65,3 +65,7 @@ FIM
 1
 0
 ```
+## Como rodar o programa
+```python
+python main.py
+```
